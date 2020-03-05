@@ -1,0 +1,22 @@
+{
+  "name": "fluper-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.3",
+    "mongoose-type-email": "^1.0.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
