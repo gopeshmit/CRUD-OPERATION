@@ -8,6 +8,7 @@ exports.user_create = function (req,res) {
         user_id             :req.body.user_id,
         name                :req.body.name,
         email               :req.body.email,
+        password            :req.body.password,
         phone               :req.body.phone,
         dob                 :req.body.dob,
         access_token        :req.body.access_token,
