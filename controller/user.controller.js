@@ -1,5 +1,5 @@
 const user= require('../model/user.model');
-
+const bcrypt = require('bcrypt');
 //For Creating User
 exports.user_create = function (req,res) {
     console.log(req.body);
@@ -25,12 +25,20 @@ exports.user_create = function (req,res) {
         created_on          :req.body.created_on,
         social_id           :req.body.social_id,
         social_type         :req.body.social_type
-    }
-);
-users.save()
-.then(()=>{ console.log("success")})
-.catch((error)=>{console.log("error",error )})  
+    });
+
+bcrypt.genSalt(10,function(err,salt){
+    bcrypt.hash(users.password,salt,function(err,hash){
+        users.password = hash;
+        users.save()
+        .then(() => console.log('Successsss'))
+        .catch((err) => {
+            console.log('ERRorr- ', err);
+    });
+});
+});
 };
+
 
 //For Getting User Detail
 exports.user_details = function (req, res) {
@@ -38,7 +46,7 @@ user.find((err, docs)=> {
     if (err) return(err);
     else
     res.send(docs);
-    console.log("get")
+    console.log("get");
 })
 };
 
