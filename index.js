@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-//Require Database
+//Require DataBase
 require('./config/db');
 
 const bodyParser = require('body-parser');
